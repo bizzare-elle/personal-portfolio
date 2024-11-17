@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .subTitle {
+    @apply text-[20px];
+  }
+}
+
+* {
+  font-family: "Outfit";
+}
+
+h1 {
+  font-size: 110px;
+}
+
+h2 {
+  font-size: 90px;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 90px;
+  font-weight: bold;
+  color: white;
+}
+
+h4 {
+  color: #c75b7a;
+  font-weight: bold;
+  font-size: x-large;
+}
