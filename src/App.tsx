@@ -4,6 +4,7 @@ import Home from "./components/pages/Home";
 import Skills from "./components/pages/Skills";
 import AboutMe from "./components/pages/AboutMe";
 import Projects from "./components/pages/Projects";
+import Footer from "./components/pages/Footer";
 
 const App = () => {
   return (
@@ -26,6 +27,9 @@ const App = () => {
           <Projects />
         </Element>
       </main>
+      <footer className="w-full bg-bg ">
+        <Footer />
+      </footer>
     </div>
   );
 };

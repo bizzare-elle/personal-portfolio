@@ -40,7 +40,7 @@ const Home = () => {
             <span>Let's connect!</span>
           </p>
           <div className="flex gap-x-16 mt-10">
-            <button className="bg-accent text-text px-5 py-2 rounded-sm">
+            <button className="bg-accent text-text px-5 py-2 rounded-sm hover:shadow-accent hover:shadow-2xl duration-200">
               <ScrollLink to={skills} smooth={true} duration={300}>
                 View Skills
               </ScrollLink>
@@ -51,7 +51,7 @@ const Home = () => {
         <div className="flex flex-col gap-y-5">
           <div className="bg-accent w-[500px] h-[500px] blur-[300px] right-10 top-[200px] absolute rounded-full block"></div>
           {socialLinks.map(({ icons, href }) => (
-            <div className=" text-text z-10">
+            <div key={href} className=" text-text z-10">
               <a href={href}>{icons}</a>
             </div>
           ))}

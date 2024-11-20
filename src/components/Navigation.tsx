@@ -43,7 +43,7 @@ const Navigation = () => {
       >
         <RouterLink
           to="/"
-          className="text-accent font-semibold text-[25px] font-title"
+          className="text-accent font-semibold text-[30px] font-title"
         >
           Elle
         </RouterLink>
@@ -55,7 +55,7 @@ const Navigation = () => {
               to={href}
               smooth={true}
               duration={500}
-              className="text-text cursor-pointer hover:text-accent transition-colors duration-300"
+              className="text-text cursor-pointer hover:text-accent transition-colors duration-200  hover:scale-110"
             >
               {label}
             </ScrollLink>

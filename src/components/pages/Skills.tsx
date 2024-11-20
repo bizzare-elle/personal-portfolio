@@ -8,8 +8,11 @@ import {
   IoLogoJavascript,
   IoLogoReact,
   IoLogoFigma,
+  IoLogoBitbucket,
+  IoLogoSass,
+  IoLogoVercel,
 } from "react-icons/io5";
-import { SiTypescript, SiMysql, SiGithub } from "react-icons/si";
+import { SiTypescript, SiMysql, SiGithub, SiTailwindcss } from "react-icons/si";
 
 const skillIcons = [
   {
@@ -21,6 +24,18 @@ const skillIcons = [
     icon: <IoLogoCss3 size={40} style={{ color: "#c75b7a" }} />,
   },
   {
+    label: "SASS",
+    icon: <IoLogoSass size={40} style={{ color: "#c75b7a" }} />,
+  },
+  {
+    label: "Tailwind CSS",
+    icon: <SiTailwindcss size={40} style={{ color: "#c75b7a" }} />,
+  },
+  {
+    label: "Figma",
+    icon: <IoLogoFigma size={40} style={{ color: "#c75b7a" }} />,
+  },
+  {
     label: "JavaScript",
     icon: <IoLogoJavascript size={40} style={{ color: "#c75b7a" }} />,
   },
@@ -28,6 +43,7 @@ const skillIcons = [
     label: "React JS",
     icon: <IoLogoReact size={40} style={{ color: "#c75b7a" }} />,
   },
+
   {
     label: "Typescript",
     icon: <SiTypescript size={40} style={{ color: "#c75b7a" }} />,
@@ -37,12 +53,17 @@ const skillIcons = [
     icon: <SiMysql size={40} style={{ color: "#c75b7a" }} />,
   },
   {
-    label: "Githhub",
+    label: "Github",
     icon: <SiGithub size={40} style={{ color: "#c75b7a" }} />,
   },
   {
-    label: "Figma",
-    icon: <IoLogoFigma size={40} style={{ color: "#c75b7a" }} />,
+    label: "Vercel",
+    icon: <IoLogoVercel size={40} style={{ color: "#c75b7a" }} />,
+  },
+
+  {
+    label: "Bitbucket",
+    icon: <IoLogoBitbucket size={40} style={{ color: "#c75b7a" }} />,
   },
 ];
 
@@ -82,21 +103,18 @@ const Skills = () => {
           UI/UX Designer
         </span>
       </div>
-      <div className="flex-col gap-y-5 gap-x-5 flex-wrap items-start grid grid-cols-2">
+      <div className="flex-col gap-y-5 gap-x-5 flex-wrap items-start grid grid-cols-3">
         {skillIcons.map(({ label, icon }) => (
           <div
             key={label}
-            className="flex items-center gap-x-4 bg-bg shadow-lg pl-5 py-3 w-[300px] rounded-lg border border-accent hover:shadow-accent hover:shadow-2xl"
+            className="flex items-center gap-x-4 bg-bg shadow-lg pl-5 py-3 w-[300px] rounded-lg border duration-200 border-accent hover:shadow-accent hover:shadow-2xl"
           >
             <div>{icon}</div>
             <span className="font-semibold text-text text-[20px]">{label}</span>
           </div>
         ))}
       </div>
-      <div className="flex flex-col justify-center items-center pt-[50px] gap-y-[30px] px-32">
-        <span className="text-text text-[20px] font-semibold pb-[20px]">
-          Soft Skills
-        </span>
+      <div className="flex flex-col justify-center items-center pt-[80px] gap-y-[30px] px-32">
         <div className="flex gap-x-[120px]">
           {softSkills.map(({ text, icon, description }) => (
             <div
