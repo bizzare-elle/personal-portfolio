@@ -2,6 +2,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { IoLogoDiscord } from "react-icons/io5";
 import { FaSquareGithub } from "react-icons/fa6";
+import { Link as ScrollLink } from "react-scroll";
 
 const socialLinks = [
   {
@@ -23,6 +24,7 @@ const socialLinks = [
 ];
 
 const Home = () => {
+  const skills = "skills";
   return (
     <div className="h-[100vh] w-full bg-bg px-[15%] m-auto ">
       <div className="flex justify-between pt-[15%] items-center">
@@ -39,7 +41,9 @@ const Home = () => {
           </p>
           <div className="flex gap-x-16 mt-10">
             <button className="bg-accent text-text px-5 py-2 rounded-sm">
-              View Skills
+              <ScrollLink to={skills} smooth={true} duration={300}>
+                View Skills
+              </ScrollLink>
             </button>
             <button className="text-text">Review My CV</button>
           </div>

@@ -4,43 +4,42 @@ import { useState, useEffect } from "react";
 
 const Navigation = () => {
   const navLinks = [
-    {
-      label: "Home",
-      href: "home",
-    },
-    {
-      label: "About Me",
-      href: "about",
-    },
-    {
-      label: "Skills",
-      href: "skills",
-    },
-    {
-      label: "Projects",
-      href: "projects",
-    },
+    { label: "Home", href: "home" },
+    { label: "About Me", href: "about" },
+    { label: "Skills", href: "skills" },
+    { label: "Projects", href: "projects" },
   ];
 
-  const [navbarQue, setNavbarQue] = useState(false);
+  const [navbarVisible, setNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setNavbarQue(window.screenY > 50);
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scrolling down
+        setNavbarVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up
+        setNavbarVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <>
       <nav
-        className={`flex justify-between py-3 items-center w-full px-[15%] ${
-          navbarQue ? "bg-bg shadow-sm" : "bg-opacity-0"
-        }`}
+        className={`fixed top-0 w-full h-16 flex items-center py-3 px-[15%] justify-between transition-transform duration-300 z-50 ${
+          navbarVisible ? "translate-y-0" : "-translate-y-full"
+        } ${lastScrollY > 50 ? "bg-black bg-opacity-80" : "bg-transparent"}`}
       >
         <RouterLink
           to="/"
@@ -48,19 +47,23 @@ const Navigation = () => {
         >
           Elle
         </RouterLink>
-        <div className="flex gap-x-14">
+
+        <div className="flex gap-x-10">
           {navLinks.map(({ label, href }) => (
             <ScrollLink
+              key={href}
               to={href}
               smooth={true}
               duration={500}
-              className="flex gap-x-20 text-text cursor-pointer"
+              className="text-text cursor-pointer hover:text-accent transition-colors duration-300"
             >
               {label}
             </ScrollLink>
           ))}
         </div>
       </nav>
+
+      <div className="h-16"></div>
     </>
   );
 };

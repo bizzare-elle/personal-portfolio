@@ -8,21 +8,21 @@ import Projects from "./components/pages/Projects";
 const App = () => {
   return (
     <div className=" min-h-screen flex flex-col">
-      <header className=" top-0 bg-bg sticky">
+      <header className=" flex justify-center w-full bg-bg">
         <Navigation />
       </header>
 
       <main className="flex-grow">
-        <Element name="home">
+        <Element to="home" name="home">
           <Home />
         </Element>
-        <Element name="about">
+        <Element to="about" name="about">
           <AboutMe />
         </Element>
-        <Element name="skills">
+        <Element to="skills" name="skills">
           <Skills />
         </Element>
-        <Element name="projects">
+        <Element to="projects" name="projects">
           <Projects />
         </Element>
       </main>
